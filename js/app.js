@@ -1,3 +1,4 @@
+
 if(window.addEventListener){
 	window.addEventListener('load', () => {
 		// Front face of the page
@@ -8,8 +9,6 @@ if(window.addEventListener){
 		flip = document.querySelector('.book-content');
 		// Book's pages
 		book = document.querySelectorAll('.book');
-		// Book's cover
-		cover = document.querySelectorAll('#portada');
 		contZindex = 2;
 		customZindex = 1;
 
@@ -17,12 +16,15 @@ if(window.addEventListener){
 	});
 }
 
+/**
+ * This method handles click event to flipbook
+ */
 function start(){
 	book.forEach(page => {
 		page.style.zIndex = customZindex;
 		customZindex--;
 
-		page.addEventListener('click', function(e){
+		page.addEventListener('click', (e) => {
 			let tgt = e.target;
 			let tgtid = tgt.getAttribute('id')
 			let unoThis = this;
@@ -45,18 +47,13 @@ function turnLeaf(el, formface){
 	contZindex +=20;
 
 	if (formface == 'face-front') {
-		setTimeout(function(){
-			el.style.transform = 'rotateY(-180deg)';
-		}, 500);
+		el.style.transform = 'rotateY(-180deg)';
 	}
 	else
 	{
-		setTimeout(function(){
-			el.style.transform = 'rotateY(0deg)';
-		}, 500);
+		el.style.transform = 'rotateY(0deg)';
 	}
 }
-
 
 /**
  * This method allows to move the book
@@ -71,6 +68,3 @@ function moveBook(leaf){
 		flip.classList.add("trnsf-reset");
 	}
 }
-
-
-
