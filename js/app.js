@@ -27,14 +27,13 @@ function start(){
 		page.addEventListener('click', (e) => {
 			let tgt = e.target;
 			let tgtid = tgt.getAttribute('id')
-			let unoThis = this;
+			let unoThis = page;
 			let formface = tgt.getAttribute("class")
 			unoThis.style.zIndex = contZindex;
 			contZindex++;
 
 			turnLeaf(unoThis, formface);
 			moveBook(tgtid);
-
 		});
 	});
 }
