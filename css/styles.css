@@ -67,7 +67,7 @@
     border-bottom-right-radius: 3px;
 }
 
-#portada {
+#cover {
     background: url('../img/bookPortada.jpg');
 }
 
@@ -75,7 +75,7 @@
     background: url('../img/portadaBack.jpg');
 }
 
-#portada,
+#cover,
 #portada-back {
     background-size: 100% 100%;
 }
