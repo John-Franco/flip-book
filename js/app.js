@@ -58,12 +58,19 @@ function turnLeaf(el, formface){
  * This method allows to move the book
  */
 function moveBook(leaf){
-	if (leaf == 'portada') {
-		flip.classList.remove("trnsf-reset");
-		flip.classList.add("trnsf");
-	}
-	if (leaf == 'trsf') {
-		flip.classList.remove("trnsf");
-		flip.classList.add("trnsf-reset");
+	switch (leaf) {
+		case 'cover':
+				flip.classList.remove("trnsf-reset");
+				flip.classList.add("trnsf");	
+			break;
+		case 'trsf':
+				flip.classList.remove("trnsf");
+				flip.classList.add("trnsf-reset");
+			break;
+		case 'end':
+				flip.classList.remove("trnsf");
+				flip.classList.remove("trnsf-reset");
+				flip.classList.add("trnsf-end");
+			break;
 	}
 }
