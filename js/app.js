@@ -61,10 +61,12 @@ function moveBook(leaf){
 	switch (leaf) {
 		case 'cover':
 				flip.classList.remove("trnsf-reset");
+				flip.classList.remove("trnsf-end");
 				flip.classList.add("trnsf");	
 			break;
 		case 'trsf':
 				flip.classList.remove("trnsf");
+				flip.classList.remove("trnsf-end");
 				flip.classList.add("trnsf-reset");
 			break;
 		case 'end':
