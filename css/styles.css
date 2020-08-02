@@ -87,3 +87,7 @@
 .trnsf-reset {
     transform: translateX(0);
 }
+
+.trnsf-end {
+    transform: translateX(100%);
+}
