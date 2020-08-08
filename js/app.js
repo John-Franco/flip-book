@@ -60,6 +60,7 @@ function turnLeaf(el, formface){
 function moveBook(leaf){
 	switch (leaf) {
 		case 'cover':
+		case 'back-cover':
 				flip.classList.remove("trnsf-reset");
 				flip.classList.remove("trnsf-end");
 				flip.classList.add("trnsf");	

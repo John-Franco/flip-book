@@ -71,12 +71,12 @@
     background: url('../img/bookPortada.jpg');
 }
 
-#portada-back {
+#back-cover {
     background: url('../img/portadaBack.jpg');
 }
 
 #cover,
-#portada-back {
+#back-cover {
     background-size: 100% 100%;
 }
 
