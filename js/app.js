@@ -13,6 +13,43 @@ if(window.addEventListener){
 		customZindex = 1;
 
 		start();
+		
+		document.getElementById("previous").addEventListener("click", () => {
+			let page = back.parentNode;
+			let tgtid = back.getAttribute('id')
+			let formface = back.getAttribute("class");
+			
+			page.style.zIndex = contZindex;
+			contZindex++;
+
+			turnLeaf(page, formface);
+			moveBook(tgtid);
+
+			console.log("back");
+			console.log(page.style.zIndex);
+			console.log(page);
+			console.log(formface);
+		});
+
+		document.getElementById("next").addEventListener("click", () => {
+			let page = front.parentNode;
+
+			let tgtid = front.getAttribute('id')
+			let formface = front.getAttribute("class");
+			
+			page.style.zIndex = contZindex;
+			contZindex++;
+
+			turnLeaf(page, formface);
+			moveBook(tgtid);
+
+			console.log("go");
+			console.log(page.style.zIndex);
+			console.log(page);
+			console.log(formface);
+		});
+
+		// turnLeaf(el, formface);
 	});
 }
 
