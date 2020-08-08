@@ -77,3 +77,11 @@ function moveBook(leaf){
 			break;
 	}
 }
+
+const sliderItemsWidth = window.sliderWrapper.clientWidth / 4;
+
+window.sliderContent.style.width = document.body.clientWidth + 'px';
+
+document.querySelectorAll('.slider-item').forEach(item => {
+	item.style.width = sliderItemsWidth + 'px';
+});

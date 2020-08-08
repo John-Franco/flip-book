@@ -91,3 +91,33 @@
 .trnsf-end {
     transform: translateX(100%);
 }
+
+.slider-book {
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr;
+    overflow: hidden;
+    padding: 1rem 0;
+    height: 100px;
+}
+
+.slider-book .slider-wrapper {
+    grid-column: 2 / 3;
+    overflow: hidden;
+}
+
+.slider-book .slider-wrapper .slider-content {
+    display: flex;
+}
+
+.slider-book .slider-wrapper .slider-content .slider-item {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.slider-book .slider-wrapper .slider-content .slider-item img {
+    width: 100%;
+    height: 130px;
+}
