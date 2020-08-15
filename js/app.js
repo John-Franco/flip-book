@@ -1,52 +1,53 @@
 
 if(window.addEventListener){
 	window.addEventListener('load', () => {
-		// Front face of the page
 		front = document.querySelector('.face-front');
-		// Back face of the page
 		back = document.querySelector('.face-back');  
-		// Container's book
 		flip = document.querySelector('.book-content');
-		// Book's pages
 		book = document.querySelectorAll('.book');
+
+		frontB = document.querySelectorAll('.face-front');
+		backB = document.querySelectorAll('.face-back');  
+		flipB = document.querySelectorAll('.book-content');
+		
 		contZindex = 2;
 		customZindex = 1;
 
 		start();
 		
+		cPages = 0;
+
 		document.getElementById("previous").addEventListener("click", () => {
-			let page = back.parentNode;
-			let tgtid = back.getAttribute('id')
-			let formface = back.getAttribute("class");
-			
-			page.style.zIndex = contZindex;
-			contZindex++;
-
-			turnLeaf(page, formface);
-			moveBook(tgtid);
-
-			console.log("back");
-			console.log(page.style.zIndex);
-			console.log(page);
-			console.log(formface);
+			if(cPages == 0)
+			{
+				return;
+			}
+			else
+			{
+				let page = backB[cPages-1].parentNode;
+				let tgtid = backB[cPages-1].getAttribute('id')
+				let formface = backB[cPages-1].getAttribute("class");
+	
+				turnLeaf(page, formface);
+				moveBook(tgtid);
+			}
 		});
 
-		document.getElementById("next").addEventListener("click", () => {
-			let page = front.parentNode;
 
-			let tgtid = front.getAttribute('id')
-			let formface = front.getAttribute("class");
+		document.getElementById("next").addEventListener("click", () => {		
+			if(cPages == frontB.length)
+			{
+				return;
+			}
+			else
+			{
+				let page = frontB[cPages].parentNode;
+				let tgtid = frontB[cPages].getAttribute('id')
+				let formface = frontB[cPages].getAttribute("class");
 			
-			page.style.zIndex = contZindex;
-			contZindex++;
-
-			turnLeaf(page, formface);
-			moveBook(tgtid);
-
-			console.log("go");
-			console.log(page.style.zIndex);
-			console.log(page);
-			console.log(formface);
+				turnLeaf(page, formface);
+				moveBook(tgtid); 
+			}
 		});
 
 		// turnLeaf(el, formface);
@@ -83,10 +84,14 @@ function turnLeaf(el, formface){
 	contZindex +=20;
 
 	if (formface == 'face-front') {
+		if(cPages == frontB.length){ return; }
+		cPages++;
 		el.style.transform = 'rotateY(-180deg)';
 	}
 	else
 	{
+		if(cPages == 0){ return; }
+		cPages--;
 		el.style.transform = 'rotateY(0deg)';
 	}
 }
