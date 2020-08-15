@@ -1,18 +1,56 @@
 
 if(window.addEventListener){
 	window.addEventListener('load', () => {
-		// Front face of the page
 		front = document.querySelector('.face-front');
-		// Back face of the page
 		back = document.querySelector('.face-back');  
-		// Container's book
 		flip = document.querySelector('.book-content');
-		// Book's pages
 		book = document.querySelectorAll('.book');
+
+		frontB = document.querySelectorAll('.face-front');
+		backB = document.querySelectorAll('.face-back');  
+		flipB = document.querySelectorAll('.book-content');
+		
 		contZindex = 2;
 		customZindex = 1;
 
 		start();
+		
+		cPages = 0;
+
+		document.getElementById("previous").addEventListener("click", () => {
+			if(cPages == 0)
+			{
+				return;
+			}
+			else
+			{
+				let page = backB[cPages-1].parentNode;
+				let tgtid = backB[cPages-1].getAttribute('id')
+				let formface = backB[cPages-1].getAttribute("class");
+	
+				turnLeaf(page, formface);
+				moveBook(tgtid);
+			}
+		});
+
+
+		document.getElementById("next").addEventListener("click", () => {		
+			if(cPages == frontB.length)
+			{
+				return;
+			}
+			else
+			{
+				let page = frontB[cPages].parentNode;
+				let tgtid = frontB[cPages].getAttribute('id')
+				let formface = frontB[cPages].getAttribute("class");
+			
+				turnLeaf(page, formface);
+				moveBook(tgtid); 
+			}
+		});
+
+		// turnLeaf(el, formface);
 	});
 }
 
@@ -46,10 +84,14 @@ function turnLeaf(el, formface){
 	contZindex +=20;
 
 	if (formface == 'face-front') {
+		if(cPages == frontB.length){ return; }
+		cPages++;
 		el.style.transform = 'rotateY(-180deg)';
 	}
 	else
 	{
+		if(cPages == 0){ return; }
+		cPages--;
 		el.style.transform = 'rotateY(0deg)';
 	}
 }
