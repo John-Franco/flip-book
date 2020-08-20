@@ -95,8 +95,18 @@
     grid-column: 1 / 2;
 }
 
+#previous img {
+    width: 20px;
+    height: 20px;
+}
+
 .next {
     grid-column: 3 / 3;
+}
+
+#next img {
+    width: 20px;
+    height: 20px;
 }
 
 .trnsf {
