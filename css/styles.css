@@ -129,6 +129,7 @@
 
 .slider-book .slider-wrapper .slider-content {
     display: flex;
+    transition: 0.2s;
 }
 
 .slider-book .slider-wrapper .slider-content .slider-item {
