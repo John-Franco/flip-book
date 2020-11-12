@@ -44,7 +44,17 @@ if (window.addEventListener) {
                 moveBook(tgtid);
             }
         });
-
+        
+        // document.querySelectorAll('.face-front ~ .face-front').forEach( (el) => {
+        //     console.log(el);
+        //     el.style.background = 'url("../img/camiseta.jpg")';
+        //     el.style.backgroundSize = 'contain';
+        // });
+        // document.querySelectorAll('.face-back ~ .face-back').forEach( (el) => {
+        //     console.log(el);
+        //     el.style.background = 'url("../img/camiseta.jpg")';
+        //     el.style.backgroundSize = 'contain';
+        // });
         // turnLeaf(el, formface);
     });
 }
@@ -129,3 +139,10 @@ document.querySelectorAll('.slider-item').forEach((item, index) => {
 window.sliderContent.innerHTML = cloneContent + cloneContent + cloneContent;
 
 window.sliderContent.style.transform = 'translatex(-' + translatex + 'px)';
+
+
+
+// .book:nth-child(1)
+// {
+//     background: yellow;
+// }
